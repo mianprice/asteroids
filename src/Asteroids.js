@@ -25,9 +25,9 @@ function getAPOD() {
         contentType: 'json'
     })
     .then((result) => {
-        console.log(`Date: ${result.title}`);
+        console.log(`Title: ${result.title}`);
         console.log(`Date: ${result.date}`);
-        console.log(`Date: ${result.explanation}`);
+        console.log(`Explanation: ${result.explanation}`);
         return result.url
     })
     .catch((error) => {throw error});
