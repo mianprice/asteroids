@@ -38,9 +38,13 @@ export const get_apod = () => {
 };
 
 const set_apod = (data) => {
-    return {
-        type: 'set_apod',
-        payload: data
+    if (data.url.includes('youtube')) {
+        get_last_apod();
+    } else {
+        return {
+            type: 'set_apod',
+            payload: data
+        }
     }
 }
 
