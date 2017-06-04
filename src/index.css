@@ -8,24 +8,27 @@ body {
 .asteroid {
     width: 100vw;
     height: 100vh;
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 4vw repeat(4, 20vw 4vw);
+    grid-template-rows: 4vh repeat(4, 20vh 4vh);
+    z-index: 0;
 }
 
 .asteroid_inputs {
+    grid-row: 4 / 7;
+    grid-column: 4 / 7;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    background-color: rgba(50,50,50,0.5);
+    background-color: rgba(50,50,50,0.8);
     padding: 50px;
 }
 
-.asteroid_date_input {
+.react-datepicker__input-container {
+    text-align: center;
     width: 40%;
+    margin: 0 5%;
     border: none;
 
 }
@@ -38,4 +41,34 @@ body {
     padding: 10px;
     border-radius: 5px;
     margin: 10px;
+}
+
+.apod_info {
+    grid-row: 4 / 7;
+    grid-column: 8 / 10;
+    background-color: rgba(225,225,225,0.8);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.apod_title {
+    font-size: 1.25em;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+}
+
+.apod_description {
+    max-height: 80%;
+    overflow: scroll;
+    font-size: 0.75em;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
 }
