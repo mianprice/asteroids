@@ -3,6 +3,11 @@ body {
   padding: 0;
   font-family: sans-serif;
   box-sizing: border-box;
+  font-weight: 100
+}
+
+.button_name {
+    font-weight: 900;
 }
 
 .asteroid {
@@ -14,33 +19,145 @@ body {
     z-index: 0;
 }
 
-.asteroid_inputs {
+.asteroid_inputs_main {
     grid-row: 4 / 7;
     grid-column: 4 / 7;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    align-content: space-between;
     flex-wrap: wrap;
-    background-color: rgba(50,50,50,0.8);
+    /*background-color: rgba(50,50,50,0.8);*/
     padding: 50px;
+    border-radius: 5px;
 }
 
-.react-datepicker__input-container {
+.asteroid_input_instructions {
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgba(25,25,25,0.8);
+
+}
+
+.asteroid_input_section {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
     text-align: center;
     width: 40%;
-    margin: 0 5%;
-    border: none;
+    margin: 10px 0;
+    padding: 10px 0;
+    /*border-radius: 5px;*/
+    color: white;
+    background-color: rgba(25,25,25,0.8);
+}
 
+.asteroid_input_section:nth-child(1n+2) {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.asteroid_input_section:nth-child(1n+3) {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.asteroid_input_label {
+    width: 100%;
+    margin-bottom: 5px;
 }
 
 .asteroid_req_send {
-    width: 60%;
-    background-color: white;
+    width: 100%;
+    color: white;
+    background-color: rgba(25,25,25,0.8);
     text-align: center;
-    color: blue;
+    font-size: 1.25em;
     padding: 10px;
     border-radius: 5px;
-    margin: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.asteroid_inputs_alternate {
+    grid-row: 1 / 3;
+    grid-column: 2 / 9;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    /*background-color: rgba(50,50,50,0.8);*/
+    /*padding: 50px;*/
+    padding-left: 20%;
+    border-radius: 5px;
+}
+
+/*.asteroid_inputs_alternate > div {
+    height: 50%;
+}*/
+
+.asteroid_inputs_alternate > .asteroid_input_instructions {
+    display: none;
+
+}
+
+.asteroid_inputs_alternate > .asteroid_input_section {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 30%;
+    margin: 10px 0;
+    padding: 10px 0;
+    border-radius: 5px;
+    /*border-radius: 5px;*/
+    color: white;
+    background-color: rgba(25,25,25,0.8);
+}
+
+.asteroid_inputs_alternate .asteroid_input_label {
+    padding: 5px;
+    margin-bottom: 0px;
+}
+
+.asteroid_inputs_alternate > .asteroid_req_send {
+    width: 30%;
+    color: white;
+    background-color: rgba(25,25,25,0.8);
+    text-align: center;
+    font-size: 1.5em;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.asteroid_req_send:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.background_info_switch_container {
+    grid-row: 8 / 10;
+    grid-column: 8 / 10;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.background_info_switch_container > .asteroid_req_send {
+    width: 80%;
+    font-size: 1em;
+    margin: 50px;
+}
+
+.apod_info > .asteroid_req_send {
+    font-size: 1em;
 }
 
 .apod_info {
@@ -49,23 +166,25 @@ body {
     background-color: rgba(225,225,225,0.8);
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
+    overflow: scroll;
 }
 
 .apod_title {
-    font-size: 1.25em;
+    font-size: 1.1em;
     padding: 5px;
     margin: 5px;
     border-radius: 5px;
-    background-color: blue;
+    background-color: rgba(25,25,25,0.8);
     color: white;
 }
 
 .apod_description {
-    max-height: 80%;
+    max-height: 50%;
     overflow: scroll;
     font-size: 0.75em;
     text-align: center;

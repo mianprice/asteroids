@@ -68,7 +68,13 @@ export const get_apod = (day = 0) => {
         });
     };
     return asyncAction;
-};
+}
+
+export const toggle_background_info = () => {
+    return {
+        type: 'toggle-background-info'
+    };
+}
 
 const display_asteroids = (payload) => {
     return {
@@ -91,7 +97,7 @@ export const get_asteroids = (start,end) => {
         })
         .catch(err => {
             dispatch(req_error(err));
-        })
+        });
     }
     return asyncAction;
 }
