@@ -2,22 +2,23 @@ import React from 'react';
 import * as ReactRedux from 'react-redux';
 import * as actions from './Asteroid.actions';
 
+import nasa_night_image from './nasa-night.jpg'
+
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 class Asteroid extends React.Component {
     componentDidMount() {
-        this.props.get_apod();
         this.props.change_end(moment().format('YYYY-MM-DD'));
         this.props.change_start(moment().subtract(7, 'days').format('YYYY-MM-DD'));
     }
     render() {
         const asteroidStyle = {
-            backgroundImage: 'url(' + this.props.asteroid.apod_url + ')',
+            backgroundImage: `url(${nasa_night_image})`,
             backgroundPosition: 'center',
-            backgroundRepeat: 'repeat',
-            backgroundSize: 'auto 100vh'
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover'
         };
         let backgroundInfo = this.props.asteroid.show_background ? (
             <div className="apod_info">
@@ -40,7 +41,7 @@ class Asteroid extends React.Component {
             ""
         );
         return (
-            <div style={this.props.asteroid.got_apod ? asteroidStyle : {}} className="asteroid">
+            <div style={asteroidStyle} className="asteroid">
                 <div className={(this.props.asteroid.asteroids && this.props.asteroid.asteroids.near_earth_objects) ? "asteroid_inputs_alternate" : "asteroid_inputs_main"}>
                     <div className="asteroid_input_instructions">
                         Enter a start and end date, then click on the <span className="button_name">Search Asteroids</span> button below to see the asteroids that made their closest approach to Earth between those dates.
