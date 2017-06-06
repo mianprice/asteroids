@@ -37,7 +37,7 @@ body {
     padding: 10px;
     border-radius: 5px;
     color: white;
-    background-color: rgba(25,25,25,0.8);
+    background-color: rgba(150,150,150,0.6);
 
 }
 
@@ -52,7 +52,7 @@ body {
     padding: 10px 0;
     /*border-radius: 5px;*/
     color: white;
-    background-color: rgba(25,25,25,0.8);
+    background-color: rgba(150,150,150,0.6);
 }
 
 .asteroid_input_section:nth-child(1n+2) {
@@ -75,7 +75,7 @@ body {
 .asteroid_req_send {
     width: 100%;
     color: white;
-    background-color: rgba(25,25,25,0.8);
+    background-color: rgba(150,150,150,0.6);
     text-align: center;
     font-size: 1.25em;
     padding: 10px;
@@ -118,7 +118,7 @@ body {
     border-radius: 5px;
     /*border-radius: 5px;*/
     color: white;
-    background-color: rgba(25,25,25,0.8);
+    background-color: rgba(150,150,150,0.6);
 }
 
 .asteroid_inputs_alternate .asteroid_input_label {
@@ -129,7 +129,7 @@ body {
 .asteroid_inputs_alternate > .asteroid_req_send {
     width: 30%;
     color: white;
-    background-color: rgba(25,25,25,0.8);
+    background-color: rgba(150,150,150,0.6);
     text-align: center;
     font-size: 1.5em;
     padding: 10px;
@@ -156,38 +156,19 @@ body {
     margin: 50px;
 }
 
-.apod_info > .asteroid_req_send {
-    font-size: 1em;
-}
-
-.apod_info {
-    grid-row: 4 / 7;
-    grid-column: 8 / 10;
-    background-color: rgba(225,225,225,0.8);
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    padding: 10px;
+.asteroid_list {
+    grid-row: 4 / 9;
+    grid-column: 2 / 9;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    align-content: flex-start;
     flex-wrap: wrap;
     overflow: scroll;
 }
 
-.apod_title {
-    font-size: 1.1em;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
-    background-color: rgba(25,25,25,0.8);
-    color: white;
-}
-
-.apod_description {
-    max-height: 50%;
-    overflow: scroll;
-    font-size: 0.75em;
-    text-align: center;
-    padding: 5px;
-    margin: 5px;
+.neo_section {
+    background-color: rgba(200,200,200,0.5);
+    width: 80%;
+    margin: 0 10%;
 }

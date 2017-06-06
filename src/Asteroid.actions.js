@@ -32,16 +32,17 @@ const req_error = (err) => {
         err
     };
 }
-export const toggle_background_info = () => {
-    return {
-        type: 'toggle-background-info'
-    };
-}
 
 const display_asteroids = (payload) => {
+    let req_info = payload.links;
+    let dates = Object.keys(payload.near_earth_objects);
+    let neos = dates.reduce((prev, k) => {
+        return prev.concat(payload.near_earth_objects[k]);
+    }, []);
     return {
         type: 'display-asteroids',
-        payload
+        req_info,
+        neos
     }
 }
 
@@ -58,6 +59,7 @@ export const get_asteroids = (start,end) => {
             dispatch(display_asteroids(result));
         })
         .catch(err => {
+            console.log(err);
             dispatch(req_error(err));
         });
     }

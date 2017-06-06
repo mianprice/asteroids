@@ -1,10 +1,6 @@
 const INITIAL = {
-    apod_url: "",
-    apod_title: "",
-    apod_description: "",
-    show_background: false,
-    asteroids: {},
-    got_apod: false,
+    asteroid_req_info: {},
+    neos: [],
     start: "",
     end: ""
 };
@@ -25,7 +21,8 @@ export default function reducer(state = INITIAL, action) {
         });
     } else if (action.type === "display-asteroids") {
         return Object.assign({}, state, {
-            asteroids: action.payload
+            asteroid_req_info: action.req_info,
+            neos: action.neos
         });
     }
     return state

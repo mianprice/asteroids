@@ -20,20 +20,13 @@ class Asteroid extends React.Component {
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover'
         };
-        let backgroundInfo = this.props.asteroid.show_background ? (
-            <div className="apod_info">
-                <div className="apod_title">{this.props.asteroid.apod_title}</div>
-                <div className="apod_description">{this.props.asteroid.apod_description}</div>
-                <div className="asteroid_req_send" onClick={event => this.props.toggle_background_info()}>Hide Background Info</div>
-            </div>
-        ) : (
-            <div className="background_info_switch_container"><div className="asteroid_req_send" onClick={event => this.props.toggle_background_info()}>Show Background Info</div></div>
-        );
-        let asteroidList = (this.props.asteroid.asteroids && this.props.asteroid.asteroids.near_earth_objects) ? (
+        let asteroidList = (this.props.asteroid.neos.length > 0) ? (
             <div className="asteroid_list">
-                {this.props.asteroid.asteroids.near_earth_objects.map(nre => (
-                    <div className="nre_section">
-                        This is an Asteroid
+                {this.props.asteroid.neos.map(neo => (
+                    <div className="neo_section" key={neo.neo_reference_id}>
+                        <div className="neo_name">{neo.name}</div>
+                        <a className="neo_link" href={neo.nasa_jpl_url}>NASA JPL Link</a>
+                        <div className="neo_dangerous">Dangerous? <span>{neo.is_potentially_hazardous_asteroid.toString()}</span></div>
                     </div>
                 ))}
             </div>
@@ -42,7 +35,7 @@ class Asteroid extends React.Component {
         );
         return (
             <div style={asteroidStyle} className="asteroid">
-                <div className={(this.props.asteroid.asteroids && this.props.asteroid.asteroids.near_earth_objects) ? "asteroid_inputs_alternate" : "asteroid_inputs_main"}>
+                <div className={(this.props.asteroid.neos.length > 0) ? "asteroid_inputs_alternate" : "asteroid_inputs_main"}>
                     <div className="asteroid_input_instructions">
                         Enter a start and end date, then click on the <span className="button_name">Search Asteroids</span> button below to see the asteroids that made their closest approach to Earth between those dates.
                     </div>
@@ -56,7 +49,7 @@ class Asteroid extends React.Component {
                     </div>
                     <div className="asteroid_req_send" onClick={(event) => this.props.get_asteroids(moment(this.props.asteroid.start).format('YYYY-MM-DD'),moment(this.props.asteroid.end).format('YYYY-MM-DD'))}>Search Asteroids</div>
                 </div>
-                {backgroundInfo}
+                {asteroidList}
             </div>
         );
     }
