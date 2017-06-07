@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import moment from 'moment';
 import config from './config'
 const API_KEY = config.nasa_key;
 

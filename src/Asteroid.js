@@ -25,8 +25,8 @@ class Asteroid extends React.Component {
                 {this.props.asteroid.neos.map(neo => (
                     <div className="neo_section" key={neo.neo_reference_id}>
                         <div className="neo_name">{neo.name}</div>
-                        <a className="neo_link" href={neo.nasa_jpl_url}>NASA JPL Link</a>
-                        <div className="neo_dangerous">Dangerous? <span>{neo.is_potentially_hazardous_asteroid.toString()}</span></div>
+                        <a className="neo_link" target="_blank" href={neo.nasa_jpl_url}>NASA JPL Link</a>
+                        <div className={neo.is_potentially_hazardous_asteroid ? "neo_dangerous danger" : "neo_dangerous no_danger"}>{neo.is_potentially_hazardous_asteroid ? "Dangerous!" : "Not Dangerous"}</div>
                     </div>
                 ))}
             </div>
